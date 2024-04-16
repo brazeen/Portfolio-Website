@@ -1,0 +1,280 @@
+*{
+    /*space inside element between content and border*/
+    padding: 0;
+    /*space outside element between content and border*/
+    margin: 0;
+    /*removes the styling eg.bulletpoints on lists*/
+    list-style: none;
+    /*removes the text deco like underlines on links*/
+    text-decoration: none;
+}
+
+/*when link back to top of page scroll is smooth*/
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-color: black;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/*this is the 3d canvas so it always needs to be fixed position and under everything else*/
+canvas {
+    z-index: -1;
+}
+/*------------------------------------------------NAV----------------------------------------------------------------*/
+nav {
+    position: fixed;
+    z-index: 1000;
+    /*height of the nav bar*/
+    min-height: 100px;
+    /*full width of the page*/
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     background-color: #000000;
+}
+
+/*------------------------------------------------MAIN INDEX----------------------------------------------------------------*/
+.hero {
+    min-height: 70vh;
+    display: flex;
+    /*space evenly in the middle*/
+    justify-content: space-evenly;
+}
+.bio {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 50vw;
+    margin-top: 5vw;
+    line-height: 2;
+    padding: 25px;
+    border-radius: 15px;
+    color: white;
+}
+
+.bio-title {
+    margin: 50px 0px;
+}
+
+.indexmain {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.mainheader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+/*3d canvas wrapper*/
+.canvaswrapper {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.eachcanvas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.eachcanvas h4 {
+    position: absolute;
+    bottom: 30%;
+    color: white;
+}
+
+
+
+/*------------------------------------------------MAIN PROJECTS----------------------------------------------------------------*/
+.news-wrapper{
+    /*i want to have space between my elements (news containers)*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+
+.news-container1{
+    display: flex;
+    justify-content: center;
+    /*space it out from the previous article*/
+    padding: 25px;
+    background: #000000;
+    width: 63vw;
+}
+
+
+.news-imagecontainer1{
+    width: 55vw;
+    object-fit: fill;
+    /*hide any part of image outside of container*/
+    overflow: hidden;
+}
+
+.news-imagecontainer1 img{
+    /*make the image fill the width of container*/
+    width: 100%; 
+    /*maintain the aspect ratio*/
+    height: auto; 
+    /*remove any alignment/spacing that is default*/
+    display: block; 
+}
+
+.news-content1{
+    color: #ffffff;
+    /*make it take up less space*/
+    width: 30vw;
+    /*ensure there is space between text and img*/
+    padding-left: 20px;
+    /*ensure there is space from top and sides of text box to the text*/
+    padding-top: 10px;
+    padding-right: 15px;
+    /*same height as image*/
+    max-height: 55vh;
+}
+
+/*content of news 1 excluding header*/
+.news-content1 p, .news-content2 p{
+    /*separate the lines to make it cleaner looking*/
+    line-height: 1.5;
+}
+
+.news-container2{
+    display: flex;
+    justify-content: center;
+    /*space it out from previous article*/
+    padding: 25px;
+    background: #000000;
+    width: 63vw;
+}
+
+.news-imagecontainer2{
+    /*to make alternating sides for the picture eg. left first article, right second article*/
+    order: 2;
+    width: 55vw;
+    /*hide any part of image outside of container*/
+    overflow: hidden;
+}
+
+.news-imagecontainer2 img{
+    /*make the image fill the width of container*/
+    width: 100%; 
+    /*maintain the aspect ratio*/
+    height: auto; 
+    /*remove any alignment/spacing that is default*/
+    display: block; 
+}
+
+.news-content2{
+    /*switch the order because i want alternating side one picture one text*/
+    order: 1;
+    color: #ffffff;
+    width: 30vw;
+    padding-right: 20px;
+    /*ensure there is space from top and sidesof text box to the text*/
+    padding-top: 10px;
+    padding-left: 15px;
+    /*limit max width so it does not expand too much if photo too large*/
+    max-width: 70vw;
+    /*same height as image*/
+    max-height: 55vh;
+}
+
+.news-readmorebtncontainer{
+    /*for aesthetics*/
+    padding-top: 15px;
+}
+
+.news-readmorebtn{
+    background: #000000;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    /*spacing*/
+    letter-spacing: 2px;
+    padding: 0.7em 1em;
+    margin: 0.25em;
+    /*transition for hover animation*/
+    transition: 0.5s;
+}
+.news-readmorebtn:hover{
+    background: #ffffff;
+    color: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width: 1350px){
+    .news-container1, .news-container2{
+        flex-direction: column;
+    }
+    .news-container1, .news-container2{
+        align-items: center;
+    }
+    .news-imagecontainer{
+        justify-content: center;
+        overflow: hidden;
+        width: 500px;
+    }
+
+    .news-content1, .news-content2{
+        width: 500px;
+    }
+
+    .news-content2{
+        order: 2;
+    }
+}
+/*closer to tablet size screen*/
+@media(max-width: 820px){
+    .news-container1, .news-container2{
+        width: 75vw;
+    }
+    .news-content1, .news-content2{
+        font-size: 14px;
+    }
+}
+
+@media(max-width:650px){
+    .news-content1, .news-content2, .news-imagecontainer{
+        width: 350px;
+    }
+    .news-imagecontainer{
+        width: 350px;
+        
+    }
+}
+
+
+@media(max-width: 400px){   
+    .news-content1, .news-content2{
+        font-size: 12px;
+    }
+}
