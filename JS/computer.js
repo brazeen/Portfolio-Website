@@ -91,7 +91,7 @@ function onCanvasClick( event ) {
 //variable to store pc
 var computer;
 //load the pc model
-loader.load('assets/computer.gltf', function(gltf){
+loader.load('assets/computer/computer.gltf', function(gltf){
   computer = gltf.scene;
   computer.scale.set(5,5,5);
   //add  to the scene

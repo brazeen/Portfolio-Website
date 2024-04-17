@@ -24,7 +24,7 @@ renderer.setSize(300, 300);
 camera.position.setZ(10);
 
 //add a light (ambient light because it lights up everything)
-const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+const directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
 scene.add( directionalLight );
 //add a light (ambient light because it lights up everything)
 const directionalLight2 = new THREE.DirectionalLight( 0xffffff, 0.5 );
