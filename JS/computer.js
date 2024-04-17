@@ -48,22 +48,20 @@ function onPointerMove( event ) {
     const intersects = raycaster.intersectObjects( scene.children, true );
 
     for ( let i = 0; i < intersects.length; i ++ ) {
-        //change colour
         intersects[ i ].object.material.color.set( 0xff0000 );
         //GSAP animations
-        computer.tl = new TimelineMax().delay(0.1);
+        object.tl = new TimelineMax().delay(0.1);
         //rotate by 360 degrees in radians lol
-        computer.tl.to(computer.rotation, 0.5, {y: -300, ease: Expo.easeOut})
+        object.tl.to(object.rotation, 0.5, {y: object.rotation.y < 4.71 ? 1.57 : 7.85, ease: Expo.easeOut})
     }
 
     if (intersects.length == 0) {
         scene.traverse(function(child) {
             if (child.isMesh) {
                 child.material.color.set( 0xffffff );
-                computer.tl = null;
             }
         });
-    } 
+    }
 }
 
 function onCanvasClick( event ) {
@@ -89,14 +87,14 @@ function onCanvasClick( event ) {
 }
 
 //variable to store pc
-var computer;
+var object;
 //load the pc model
 loader.load('assets/computer/computer.gltf', function(gltf){
-  computer = gltf.scene;
-  computer.scale.set(5,5,5);
+  object = gltf.scene;
+  object.scale.set(5,5,5);
   //add  to the scene
-  scene.add(computer);
-  computer.rotation.y -= 300
+  object.rotation.y = 1.57
+  scene.add(object);
 })
 
 
@@ -104,11 +102,11 @@ function animate(){
     
     requestAnimationFrame(animate);
     renderer.render(scene,camera);
-    if (computer){
-        computer.rotation.y += 0.01
+    if (object){
+        object.rotation.y +=0.01;
+        object.rotation.y = object.rotation.y % 6.29;
     }
-    
-}
+  }
   
 animate()
   
@@ -122,7 +120,7 @@ animate()
   */
   //for raycaster
 window.addEventListener( 'pointermove', onPointerMove );
-window.addEventListener( 'click', onCanvasClick)
+window.addEventListener( 'click', onCanvasClick );
 
 
 

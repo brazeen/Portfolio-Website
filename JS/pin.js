@@ -36,71 +36,92 @@ const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 
 function onPointerMove( event ) {
-    // Get canvas dimensions
-    const canvasRect = renderer.domElement.getBoundingClientRect();
-    const canvasWidth = canvasRect.width;
-    const canvasHeight = canvasRect.height;
+  // Get canvas dimensions
+  const canvasRect = renderer.domElement.getBoundingClientRect();
+  const canvasWidth = canvasRect.width;
+  const canvasHeight = canvasRect.height;
 
-    // Calculate pointer position in normalized device coordinates
-    pointer.x = ( ( event.clientX - canvasRect.left ) / canvasWidth ) * 2 - 1;
-    pointer.y = - ( ( event.clientY - canvasRect.top ) / canvasHeight ) * 2 + 1;
+  // Calculate pointer position in normalized device coordinates
+  pointer.x = ( ( event.clientX - canvasRect.left ) / canvasWidth ) * 2 - 1;
+  pointer.y = - ( ( event.clientY - canvasRect.top ) / canvasHeight ) * 2 + 1;
 
-    // Update the picking ray with the camera and pointer position
-    raycaster.setFromCamera( pointer, camera );
+  // Update the picking ray with the camera and pointer position
+  raycaster.setFromCamera( pointer, camera );
 
-    // Calculate objects intersecting the picking ray
-    const intersects = raycaster.intersectObjects( scene.children, true );
+  // Calculate objects intersecting the picking ray
+  const intersects = raycaster.intersectObjects( scene.children, true );
 
-    for ( let i = 0; i < intersects.length; i ++ ) {
-        intersects[ i ].object.material.color.set( 0xff0000 );
-        //GSAP animations
-        pin.tl = new TimelineMax().delay(0.1);
-        //rotate by 360 degrees in radians lol
-        pin.tl.to(pin.rotation, 0.5, {y: -300, ease: Expo.easeOut})
-        
-    }
+  for ( let i = 0; i < intersects.length; i ++ ) {
+      intersects[ i ].object.material.color.set( 0xff0000 );
+      //GSAP animations
+      object.tl = new TimelineMax().delay(0.1);
+      //rotate by 360 degrees in radians lol
+      object.tl.to(object.rotation, 0.5, {y: object.rotation.y < 4.71 ? 1.57 : 7.85, ease: Expo.easeOut})
+  }
 
-    if (intersects.length == 0) {
-        scene.traverse(function(child) {
-            if (child.isMesh) {
-                child.material.color.set( 0xffffff );
-            }
-        });
-    }
+  if (intersects.length == 0) {
+      scene.traverse(function(child) {
+          if (child.isMesh) {
+              child.material.color.set( 0xffffff );
+          }
+      });
+  }
+}
+
+function onCanvasClick( event ) {
+  // Get canvas dimensions
+  const canvasRect = renderer.domElement.getBoundingClientRect();
+  const canvasWidth = canvasRect.width;
+  const canvasHeight = canvasRect.height;
+
+  // Calculate pointer position in normalized device coordinates
+  pointer.x = ( ( event.clientX - canvasRect.left ) / canvasWidth ) * 2 - 1;
+  pointer.y = - ( ( event.clientY - canvasRect.top ) / canvasHeight ) * 2 + 1;
+
+  // Update the picking ray with the camera and pointer position
+  raycaster.setFromCamera( pointer, camera );
+
+  // Calculate objects intersecting the picking ray
+  const intersects = raycaster.intersectObjects( scene.children, true );
+
+  //if clicked, redirect
+  if (intersects.length > 0) {
+      window.location.href = "events.html"
+  }
 }
 
 //variable to store pin
-var pin;
+var object;
 //load the pin model
 loader.load('assets/pin/pin.gltf', function(gltf){
-  pin = gltf.scene;
-  pin.scale.set(0.75,0.75,0.75);
+  object = gltf.scene;
+  object.scale.set(0.75,0.75,0.75);
   //add spaceship to the scene
-  scene.add(pin);
-  pin.position.set(0,2,0)
-  pin.rotation.y -= 300
+  scene.add(object);
+  object.position.set(0,2,0)
+  object.rotation.y -= 300
 })
 
 function animate(){
     
-    requestAnimationFrame(animate);
-    renderer.render(scene,camera);
-    if (pin){
-        pin.rotation.y += 0.01;
-    }
+  requestAnimationFrame(animate);
+  renderer.render(scene,camera);
+  if (object){
+      object.rotation.y +=0.01;
+      object.rotation.y = object.rotation.y % 6.29;
   }
+}
   
-  animate()
-  
-  /*
-  //if the window gets resized, change the aspect ratio
-  window.onresize = function(e){
-    camera.aspect = window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix()
-    renderer.setSize(window.innerWidth, window.innerHeight)
-  }
-  */
-  //for raycaster
-  window.addEventListener( 'pointermove', onPointerMove );
+animate()
 
-  
+/*
+//if the window gets resized, change the aspect ratio
+window.onresize = function(e){
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix()
+  renderer.setSize(window.innerWidth, window.innerHeight)
+}
+*/
+//for raycaster
+window.addEventListener( 'pointermove', onPointerMove );
+window.addEventListener( 'click', onCanvasClick );
