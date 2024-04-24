@@ -95,6 +95,22 @@ footer {
     margin: 50px 0px;
 }
 
+.aboutbtn {
+  background: #040042;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  /*spacing*/
+  letter-spacing: 2px;
+  padding: 0.7em 1em;
+  margin: 0.25em;
+  /*transition for hover animation*/
+  transition: 0.5s;
+}
+
+.aboutbtn:hover {
+  background: #ffffff;
+  color: #040042;
+}
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
