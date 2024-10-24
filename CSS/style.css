@@ -72,227 +72,164 @@ footer {
   50% { border-color: rgb(255, 255, 255); }
 }
 /*------------------------------------------------MAIN ABOUT----------------------------------------------------------------*/
-.hero {
-    min-height: 60vh;
-    display: flex;
-    /*space evenly in the middle*/
-    justify-content: space-evenly;
+/* Global Settings */
+
+
+h1, h2, h5 {
+  color: #fff;
 }
+
+p, time {
+  color: #ccc;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
 .bio {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    width: 50vw;
-    margin-top: 5vw;
-    line-height: 2;
-    padding: 25px;
-    border-radius: 15px;
-    color: white;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 15px;
+  width: 50vw;
+  max-width: 600px;
+  margin-top: 5vw;
+  line-height: 1.7;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.bio:hover {
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.3);
 }
 
 .bio-title {
-    margin: 50px 0px;
+  margin-bottom: 20px;
+  font-size: 2rem;
 }
 
+/* About Button */
 .aboutbtn {
-  background: #000000;
+  background: transparent;
   border: 2px solid #ffffff;
   color: #ffffff;
-  /*spacing*/
   letter-spacing: 2px;
   padding: 0.7em 1em;
   margin: 0.25em;
-  /*transition for hover animation*/
-  box-shadow: inset 0 0 0 0 #ffffff;
-  color: #ffffff;
-  transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
 }
 
 .aboutbtn:hover {
   background: #ffffff;
   color: #000000;
-  box-shadow: inset 200px 0 0 0 #ffffff;
 }
 
-.timelinetext {
-  line-height: 30px;
-}
-/* TIMELINE
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+/* Timeline */
 .timeline ul {
-    padding: 50px 0;
-  }
-  
-  .timeline ul li {
-    list-style-type: none;
-    position: relative;
-    width: 6px;
-    border-radius: 2.5px;
-    margin: 0 auto;
-    padding-top: 50px;
-    background: rgb(255, 255, 255);
-    color: black;
-  }
-  
-  .timeline ul li::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 28px;
-    border-radius: 50%;
-    background: inherit;
-    z-index: 1;
-  }
-  
-  .timeline ul li div {
-    position: relative;
-    bottom: 0;
-    width: 400px;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: rgba(255, 255, 255, 0.19) 0px 10px 20px, rgba(255, 255, 255, 0.23) 0px 6px 6px;
-    transition: 0.5s;
-  }
+  padding: 50px 0;
+  list-style: none;
+}
 
-  .timeline ul li div:hover {
-    box-shadow: rgba(255, 255, 255, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+.timeline ul li {
+  position: relative;
+  width: 6px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding-top: 50px;
+  border-radius: 2.5px;
+}
 
-  }
-  
-  .timeline ul li div::before {
-    content: "";
-    position: absolute;
-    bottom: 7px;
-    width: 0;
-    height: 0;
-    border-style: solid;
+.timeline ul li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.timeline ul li div {
+  position: relative;
+  bottom: 0;
+  width: 400px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  box-shadow: rgba(255, 255, 255, 0.19) 0px 10px 20px;
+  transition: 0.5s;
+  color: #fff;
+}
+
+.timeline ul li:nth-child(odd) div {
+  left: 45px;
+}
+
+.timeline ul li:nth-child(even) div {
+  left: -450px;
+}
+
+.timeline ul li div:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0px 19px 38px;
+}
+
+.time {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Skills Section */
+.skills {
+  padding: 50px;
+  text-align: center;
+}
+
+.skills h1 {
+  margin-bottom: 30px;
+}
+
+.canvaswrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .bio {
+      width: 90vw;
   }
   
   .timeline ul li:nth-child(odd) div {
-    left: 45px;
-  }
-  
-  .timeline ul li:nth-child(odd) div::before {
-    left: -15px;
-    border-width: 8px 16px 8px 0;
-    border-color: transparent #000000 transparent transparent;
+      left: 20px;
   }
   
   .timeline ul li:nth-child(even) div {
-    left: -439px;
+      left: -90%;
   }
-  
-  .timeline ul li:nth-child(even) div::before {
-    right: -15px;
-    border-width: 8px 0 8px 16px;
-    border-color: transparent transparent transparent #000000;
-  }
-  
-  time {
-    display: block;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-  }
-  
-  
-  /* EFFECTS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  
-  .timeline ul li::after {
-    transition: background 0.5s ease-in-out;
-  }
-  
-  .timeline ul li.in-view::after {
-    background: #ffffff;
-  }
-  
-  .timeline ul li div {
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-  }
-  
-  .timeline ul li:nth-child(odd) div {
-    transform: translate3d(200px, 0, 0);
-  }
-  
-  .timeline ul li:nth-child(even) div {
-    transform: translate3d(-200px, 0, 0);
-  }
-  
-  .timeline ul li.in-view div {
-    transform: none;
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  
 
-  /* EXTRA/CLIP PATH STYLES
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  .timeline-clippy ul li::after {
-    width: 40px;
-    height: 40px;
-    border-radius: 0;
+  .skills {
+      padding: 30px 15px;
   }
-  
-  .timeline-rhombus ul li::after {
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+
+  .timeline ul li div {
+      width: 90%;
   }
-  
-  .timeline-rhombus ul li div::before {
-    bottom: 12px;
-  }
-  
-  .timeline-star ul li::after {
-    clip-path: polygon(
-      50% 0%,
-      61% 35%,
-      98% 35%,
-      68% 57%,
-      79% 91%,
-      50% 70%,
-      21% 91%,
-      32% 57%,
-      2% 35%,
-      39% 35%
-    );
-  }
-  
-  .timeline-heptagon ul li::after {
-    clip-path: polygon(
-      50% 0%,
-      90% 20%,
-      100% 60%,
-      75% 100%,
-      25% 100%,
-      0% 60%,
-      10% 20%
-    );
-  }
-  
-  .timeline-infinite ul li::after {
-    animation: scaleAnimation 2s infinite;
-  }
-  
-  @keyframes scaleAnimation {
-    0% {
-      transform: translateX(-50%) scale(1);
-    }
-    50% {
-      transform: translateX(-50%) scale(1.25);
-    }
-    100% {
-      transform: translateX(-50%) scale(1);
-    }
-  }
-  
+}
+
 .indexmain {
     min-height: 100vh;
     min-width: 100vw;
@@ -343,182 +280,122 @@ footer {
     min-height: 0vh;
 }
 /*------------------------------------------------MAIN PROJECTS----------------------------------------------------------------*/
-.news-wrapper{
-    /*i want to have space between my elements (news containers)*/
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px;
-}
-
-.news-container1{
-    display: flex;
-    justify-content: center;
-    /*space it out from the previous article*/
-    padding: 25px;
-    background: #000000;
-    width: 63vw;
-}
 
 
-.news-imagecontainer1{
-    width: 55vw;
-    object-fit: fill;
-    /*hide any part of image outside of container*/
-    overflow: hidden;
-}
-
-.news-imagecontainer1 img{
-    /*make the image fill the width of container*/
-    width: 100%; 
-    /*maintain the aspect ratio*/
-    height: auto; 
-    /*remove any alignment/spacing that is default*/
-    display: block; 
-}
-
-.news-content1{
-    color: #ffffff;
-    /*make it take up less space*/
-    width: 30vw;
-    /*ensure there is space between text and img*/
-    padding-left: 20px;
-    /*ensure there is space from top and sides of text box to the text*/
-    padding-top: 10px;
-    padding-right: 15px;
-    /*same height as image*/
-    max-height: 55vh;
-}
-
-/*content of news 1 excluding header*/
-.news-content1 p, .news-content2 p{
-    /*separate the lines to make it cleaner looking*/
-    line-height: 1.5;
-}
-
-.news-container2{
-    display: flex;
-    justify-content: center;
-    /*space it out from previous article*/
-    padding: 25px;
-    background: #000000;
-    width: 63vw;
-}
-
-.news-imagecontainer2{
-    /*to make alternating sides for the picture eg. left first article, right second article*/
-    order: 2;
-    width: 55vw;
-    /*hide any part of image outside of container*/
-    overflow: hidden;
-}
-
-.news-imagecontainer2 img{
-    /*make the image fill the width of container*/
-    width: 100%; 
-    /*maintain the aspect ratio*/
-    height: auto; 
-    /*remove any alignment/spacing that is default*/
-    display: block; 
-}
-
-.news-content2{
-    /*switch the order because i want alternating side one picture one text*/
-    order: 1;
-    color: #ffffff;
-    width: 30vw;
-    padding-right: 20px;
-    /*ensure there is space from top and sidesof text box to the text*/
-    padding-top: 10px;
-    padding-left: 15px;
-    /*limit max width so it does not expand too much if photo too large*/
-    max-width: 70vw;
-    /*same height as image*/
-    max-height: 55vh;
-}
-
-.news-readmorebtncontainer{
-    /*for aesthetics*/
-    padding-top: 15px;
-}
-
-.news-readmorebtn{
-    background: #000000;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    /*spacing*/
-    letter-spacing: 2px;
-    padding: 0.7em 1em;
-    margin: 0.25em;
-    /*transition for hover animation*/
-    transition: 0.5s;
-}
-.news-readmorebtn:hover{
-    background: #ffffff;
-    color: #000000;
-}
 /*------------------------------------------------MAIN CONTACT----------------------------------------------------------------*/
-
-.contactinfo {
-    min-height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+.contactmain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 80vh;
+  background-color: #000000;
 }
 
-.contacthead {
-    min-height: 40vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-}
 
 .contacticons {
   display: flex;
-
+  justify-content: center;
+  margin-top: 15px;
 }
 
 .contacticon {
-  width:fit-content;
+  margin: 0 10px;
   border-radius: 50%;
   padding: 10px;
-  transition: 0.5s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .contacticon:hover {
-  -webkit-box-shadow:0px 0px 300px 10px rgba(255, 255, 255, 0.9);
-  -moz-box-shadow: 0px 0px 300px 10px rgba(255, 255, 255, 0.9);
-  box-shadow: 0px 0px 300px 10px rgba(255, 255, 255, 0.9);
-  transform: translateY(-10px);
+  box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.7);
+  transform: translateY(-5px);
 }
+
+.contacticon img {
+  height: 40px;
+  width: 40px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .mainheader h1 {
+      font-size: 2rem;
+  }
+
+  .contact-card {
+      padding: 20px;
+  }
+
+  .contacthead h2 {
+      font-size: 1.6rem;
+  }
+
+  .contacthead h4, .contacthead h5 {
+      font-size: 1rem;
+  }
+
+  .contacticon img {
+      height: 30px;
+      width: 30px;
+  }
+
+  .contacticon {
+      margin: 0 5px;
+  }
+}
+
+
+.contacticons {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.contacticon {
+  margin: 0 10px;
+  border-radius: 50%;
+  padding: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contacticon:hover {
+  box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 0.7);
+  transform: translateY(-5px);
+}
+
+.contacticon img {
+  height: 40px;
+  width: 40px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .mainheader h1 {
+      font-size: 2rem;
+  }
+
+  .contacthead h2 {
+      font-size: 1.6rem;
+  }
+
+  .contacthead h4, .contacthead h5 {
+      font-size: 1rem;
+  }
+
+  .contacticon img {
+      height: 30px;
+      width: 30px;
+  }
+
+  .contacticon {
+      margin: 0 5px;
+  }
+}
+
 
 /*contact form right side*/
 
 /*------------------------------------------------@MEDIA----------------------------------------------------------------*/
-
-@media(max-width: 1350px){
-    .news-container1, .news-container2{
-        flex-direction: column;
-    }
-    .news-container1, .news-container2{
-        align-items: center;
-    }
-    .news-imagecontainer{
-        justify-content: center;
-        overflow: hidden;
-        width: 500px;
-    }
-
-    .news-content1, .news-content2{
-        width: 500px;
-    }
-
-    .news-content2{
-        order: 2;
-    }
-}
 
 @media screen and (max-width: 900px) {
     .timeline ul li div {
@@ -527,32 +404,6 @@ footer {
     .timeline ul li:nth-child(even) div {
         left: -289px;
         /*250+45-6*/
-    }
-}
-
-
-
-  
-/*closer to tablet size screen*/
-@media(max-width: 820px){
-    .news-container1, .news-container2{
-        width: 75vw;
-    }
-    .news-content1, .news-content2{
-        font-size: 14px;
-    }
-    .bio {
-        width: 80vw;
-    }
-}
-
-@media(max-width:650px){
-    .news-content1, .news-content2, .news-imagecontainer{
-        width: 350px;
-    }
-    .news-imagecontainer{
-        width: 350px;
-        
     }
 }
 
@@ -573,12 +424,99 @@ footer {
     }
 }
 
-@media(max-width: 400px){   
-    .news-content1, .news-content2{
-        font-size: 12px;
-    }
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Add space between the cards */
+  padding: 20px;
+}
 
-    .bio {
-        font-size: 15px;
-    }
+/* Card Style */
+.card-container {
+  flex: 1 1 calc(33.33% - 40px); /* Responsive 3-column layout */
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Ensure cards have uniform height */
+  padding: 20px;
+}
+
+.card {
+  background-color: #111;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border: 1px solid #333;
+  height: 100%; /* Ensure the card fills the entire container */
+}
+
+.card-photo {
+  width: 100%;
+  height: auto;
+  max-height: 250px; /* Limit image height */
+  object-fit: cover; /* Ensure the image fills the space without stretching */
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+/* Card Hover Effect */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  border-color: #555;
+}
+
+/* Card Title */
+.card-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* Card Description */
+.card-description {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 20px;
+  font-weight: 300;
+  flex-grow: 1; /* Allow the description to grow and fill space */
+}
+
+/* Card Button */
+.card-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  color: #000;
+  background-color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+  .card-container {
+    flex: 1 1 calc(50% - 40px); /* 2-column layout for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex: 1 1 100%; /* Single column layout for small screens */
+  }
+  .card {
+    width: 90%;
+  }
 }
