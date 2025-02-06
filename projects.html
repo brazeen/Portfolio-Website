@@ -72,7 +72,7 @@
                     <div class="card-content">
                         <h2 class="card-title">Highway Surfers: Endless Runner</h2>
                         <p class="card-description">Using Brackeys' Youtube tutorials as well as free 3D assets from the internet, I made a simple endless runner game using Unity.</p>
-                        <a href="https://simmer.io/@branzin/highway-surfers-v2" class="card-button">try it here!</a>
+                        <a class="card-button" onclick="viewProject('hs')">see more!</a>
                     </div>
                 </div>
             </div>
@@ -82,8 +82,8 @@
                     <img class="card-photo" src="assets/threejs website.png">
                     <div class="card-content">
                         <h2 class="card-title">Cosmo.IO: Interactive 3D Quiz Website</h2>
-                        <p class="card-description">Using a trivia API, three.js and RestDB, my two friends and I made a trivia game. This was a really interesting project, opening my eyes to 3D web development and using REST APIs. <br><br>Contributions: Implemented all 3D elements and front-end for the home, navigation, and story pages  </p>
-                        <a href="https://brazeen.github.io/FED_CosmoIO_website/" class="card-button">try it here!</a>
+                        <p class="card-description">Using a trivia API, three.js and RestDB, my two friends and I made a trivia game. This was a really interesting project, opening my eyes to 3D web development and using REST APIs.</p>
+                        <a class="card-button" onclick="viewProject('cio')">see more!</a>
                     </div>
                 </div>
             </div>
@@ -93,9 +93,9 @@
                     <img class="card-photo" src="assets/Untitled.jpeg">
                     <div class="card-content">
                         <h2 class="card-title">Volunteezy: Volunteering Platform</h2>
-                        <p class="card-description">My team and I made a full-stack web app to allow NGOs (Non Governmental Organisations) to find volunteers for events, with an administration page. <br><br>Contributions: volunteers’ opportunity application , NGO account application, all admin functions and database design.
+                        <p class="card-description">My team and I made a full-stack web app to allow NGOs (Non Governmental Organisations) to find volunteers for events, with an administration page.
                             </p>
-                        <a href="https://github.com/brazeen/BED2024Apr_Volunteezy" class="card-button">source code!</a>
+                        <a class="card-button" onclick="viewProject('v')">see more!</a>
                     </div>
                 </div>
             </div>
@@ -105,8 +105,19 @@
                     <img class="card-photo" src="assets/GreenCampus.png">
                     <div class="card-content">
                         <h2 class="card-title">GreenCampus: School Environmental Management System</h2>
-                        <p class="card-description">For my Full Stack Development Project module, my team and I were given a carbon emission problem statement by Alibaba, and were tasked to create an effective way for schools to manage their energy and carbon emissions to reach net zero. <br><br>Contributions: Dashboard elements, campaigns, rewards and events.  </p>
-                        <a href="https://github.com/jungsek/GreenCampus" class="card-button">source code!</a>
+                        <p class="card-description">For my Full Stack Development Project module, my team and I were given a carbon emission problem statement by Alibaba, and were tasked to create an effective way for schools to manage their energy and carbon emissions to reach net zero.</p>
+                        <a class="card-button" onclick="viewProject('gc')">see more!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card">
+                    <img class="card-photo" src="assets/planhub.png">
+                    <div class="card-content">
+                        <h2 class="card-title">PlanHub: Your Travel Companion</h2>
+                        <p class="card-description">My team and I developed an Android mobile app to be a planning assistant for overseas trips, allowing users to search for places, create itineraries, share their ideas on community forums and more.</p>
+                        <a class="card-button" onclick="viewProject('ph')">see more!</a>
                     </div>
                 </div>
             </div>
@@ -121,10 +132,13 @@
     
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <script type="module" src="JS/script.js"></script>
+    <script src="JS/script.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
     AOS.init();
+    function viewProject(name) {
+  window.location.href = `viewproject.html?project=${name}`;
+}
   </script>
 </body>
 </html>

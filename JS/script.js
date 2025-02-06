@@ -104,3 +104,7 @@ const cubes = Array.from(canvases).map(canvas => new CubeCanvas(canvas));
 window.addEventListener('resize', () => {
   cubes.forEach(cube => cube.resize());
 });
+
+
+
+
