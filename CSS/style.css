@@ -283,7 +283,9 @@ p, time {
         border-color: transparent #04004280 transparent transparent;
     }
 }
-
+.contacticons{
+  padding: 0;
+}
 
 /* Skills Section */
 /* Enhanced Skills Section Styling */
@@ -300,6 +302,7 @@ p, time {
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
+  padding-left: 0;
 }
 
 .skills .contacticon {
@@ -645,7 +648,7 @@ p, time {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 60vh;
+  min-height: 40vh;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   text-align: center;
@@ -763,7 +766,12 @@ p, time {
 .btn--med {
   padding: 10px 20px;
   font-size: 1rem;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
+
 
 .btn--theme {
   background-color: #ffffff;

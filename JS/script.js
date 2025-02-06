@@ -43,26 +43,49 @@ class CubeCanvas {
     });
 
     this.textureLoader = new THREE.TextureLoader();
-    this.loadTexture("../assets/MYFACE.jpg"); // Loads texture properly
+    this.cubes = [];
 
+    this.mouse = new THREE.Vector2();
+    this.windowHalf = {
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2
+    };
+    
+    // Add mouse move listener
+    document.addEventListener('mousemove', (event) => {
+      this.mouse.x = (event.clientX - this.windowHalf.x) / this.windowHalf.x;
+      this.mouse.y = (event.clientY - this.windowHalf.y) / this.windowHalf.y;
+    });
+    
+    // Define image paths and positions for 4 cubes
+    const cubeConfigs = [
+      { image: '../assets/html.png', position: [-3, 2, 0] },
+      { image: '../assets/css.png', position: [3, 2, 0] },
+      { image: '../assets/javascript.png', position: [-3, -2, 0] },
+      { image: '../assets/nodejs.png', position: [3, -2, 0] }
+    ];
+
+    cubeConfigs.forEach(config => this.loadTexture(config));
     this.init();
   }
 
-  loadTexture(imagePath) {
+  loadTexture(config) {
     this.textureLoader.load(
-      imagePath,
+      config.image,
       (texture) => {
-        texture.wrapS = THREE.RepeatWrapping;  // Prevents stretching
+        texture.wrapS = THREE.RepeatWrapping;
         texture.wrapT = THREE.RepeatWrapping;
         texture.minFilter = THREE.LinearFilter;
         texture.magFilter = THREE.LinearFilter;
 
         const aspectRatio = texture.image.width / texture.image.height;
-        this.geometry = new THREE.BoxGeometry(1 * aspectRatio, 1, 1);
-        this.material = new THREE.MeshBasicMaterial({ map: texture });
+        const geometry = new THREE.BoxGeometry(1 * aspectRatio, 1, 1);
+        const material = new THREE.MeshBasicMaterial({ map: texture });
 
-        this.cube = new THREE.Mesh(this.geometry, this.material);
-        this.scene.add(this.cube);
+        const cube = new THREE.Mesh(geometry, material);
+        cube.position.set(...config.position);
+        this.cubes.push(cube);
+        this.scene.add(cube);
       },
       undefined,
       (error) => console.error("Texture loading error:", error)
@@ -71,7 +94,7 @@ class CubeCanvas {
 
   init() {
     this.renderer.setPixelRatio(window.devicePixelRatio);
-    this.camera.position.z = 1.2;
+    this.camera.position.z = 4; // Moved camera back to see all cubes
     this.resize();
     this.animate();
   }
@@ -88,13 +111,31 @@ class CubeCanvas {
 
   animate() {
     requestAnimationFrame(() => this.animate());
-    if (this.cube) {
-      this.cube.rotation.x += 0.01;
-      this.cube.rotation.y += 0.01;
-    }
+    
+    // Make cubes follow cursor with different intensities
+    this.cubes.forEach((cube, index) => {
+      const intensity = 0.5 + (index * 0.2);
+      
+      // Smooth rotation based on mouse position
+      cube.rotation.x += 0.001;
+      cube.rotation.y += 0.001;
+      
+      // Target rotation based on mouse position
+      const targetRotationX = this.mouse.y * intensity;
+      const targetRotationY = this.mouse.x * intensity;
+      
+      // Smooth interpolation
+      cube.rotation.x += (targetRotationX - cube.rotation.x) * 0.05;
+      cube.rotation.y += (targetRotationY - cube.rotation.y) * 0.05;
+      
+      // Add subtle floating motion
+      cube.position.y += Math.sin(Date.now() * 0.001 + index) * 0.002;
+    });
+    
     this.renderer.render(this.scene, this.camera);
   }
 }
+
 
 // 🖥️ Initialize Canvases
 const canvases = document.querySelectorAll('.hero canvas');

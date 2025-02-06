@@ -67,7 +67,17 @@ if (name === 'ph'){
     
     codebtn.setAttribute("href", "https://github.com/RISHIKEsH12321/MAD24_P01_Team3")
 }
-
+if (name === 'nc'){
+    title.innerText = "Ngee Ann City Game"
+    exp.innerText = "A 2D city building simulation, complete with saving/loading games, a leaderboard, drag-and-drop build functionality and point systems."
+    para1.innerText = " This project was a simple project made for the team to learn the Scrum framework and how it would be used in real projects. Scrum allowed us as a team to keep track of our tasks very easily, and encouraged us to ideate on what else we could add / what else the stakeholders wanted (by encouraging us to do regular Sprint Reviews with them to get feedback)."
+    para2.innerText = "Contributions: Implemented leaderboard, drag-and drop functionality, home page layout."
+    img.setAttribute("src", "assets/ngeeanncity.png")
+    let skillslist = ["HTML", "CSS", "JavaScript", "Git", "Github"]
+    skilldiv = addSkills(skillslist, skilldiv)
+    trybtn.setAttribute("href", "https://brazeen.github.io/NgeeAnnCityGame/")
+    codebtn.setAttribute("href", "https://github.com/brazeen/NgeeAnnCityGame")
+}
 
 
 
