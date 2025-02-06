@@ -93,11 +93,28 @@ p, time {
   text-align: center;
 }
 
+.cube-canvas {
+  width: 100% !important;
+  height:auto !important;
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .hero {
+      grid-template-columns: 1fr;
+  }
+  
+  .cube-canvas {
+      
+
+  }
+}
+
 .bio {
   background: rgba(255, 255, 255, 0.1);
   padding: 25px;
   border-radius: 15px;
-  width: 50vw;
+  width: 70vw;
   max-width: 600px;
   margin-top: 5vw;
   line-height: 1.7;
@@ -242,10 +259,81 @@ p, time {
 
 
 /* Skills Section */
+/* Enhanced Skills Section Styling */
 .skills {
-  padding: 50px;
-  text-align: center;
+  padding: 50px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  margin: 20px;
 }
+
+.skills .contacticons {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skills .contacticon {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.skills .contacticon img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: grayscale(20%);
+  transition: all 0.3s ease;
+}
+
+.skills .contacticon:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skills .contacticon:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Responsive Grid Adjustments */
+@media (max-width: 1200px) {
+  .skills .contacticons {
+      grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills .contacticons {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+  }
+  
+  .skills .contacticon img {
+      width: 45px;
+      height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills .contacticons {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+  }
+  
+  .skills .contacticon {
+      padding: 15px;
+  }
+}
+
 
 .skills h1 {
   margin-bottom: 30px;
