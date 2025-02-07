@@ -59,10 +59,10 @@ class CubeCanvas {
     
     // Define image paths and positions for 4 cubes
     const cubeConfigs = [
-      { image: '../assets/html.png', position: [-3, 2, 0] },
-      { image: '../assets/css.png', position: [3, 2, 0] },
-      { image: '../assets/javascript.png', position: [-3, -2, 0] },
-      { image: '../assets/nodejs.png', position: [3, -2, 0] }
+      { image: 'assets/html.png', position: [-3, 2, 0] },
+      { image: 'assets/css.png', position: [3, 2, 0] },
+      { image: 'assets/javascript.png', position: [-3, -2, 0] },
+      { image: 'assets/nodejs.png', position: [3, -2, 0] }
     ];
 
     cubeConfigs.forEach(config => this.loadTexture(config));
