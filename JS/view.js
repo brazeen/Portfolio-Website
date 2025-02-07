@@ -4,7 +4,7 @@ const title = document.getElementById('projtitle')
 const exp = document.getElementById('projtitleexp')
 const para1 = document.getElementById('para1')
 const para2 = document.getElementById('para2')
-const skilldiv = document.getElementById('skillsprojectdiv')
+let skilldiv = document.getElementById('skillsprojectdiv')
 const img = document.getElementById('projectimage')
 const trybtn = document.getElementById('trybtn')
 const codebtn = document.getElementById('codebtn')
@@ -75,8 +75,9 @@ if (name === 'nc'){
     img.setAttribute("src", "assets/ngeeanncity.png")
     let skillslist = ["HTML", "CSS", "JavaScript", "Git", "Github"]
     skilldiv = addSkills(skillslist, skilldiv)
-    trybtn.setAttribute("href", "https://brazeen.github.io/NgeeAnnCityGame/")
-    codebtn.setAttribute("href", "https://github.com/brazeen/NgeeAnnCityGame")
+    trybtn.href = "https://brazeen.github.io/NgeeAnnCityGame/"
+    codebtn.href = "https://github.com/brazeen/NgeeAnnCityGame"
+
 }
 
 
